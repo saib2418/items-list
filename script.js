@@ -34,9 +34,15 @@ enterButton.addEventListener("click", addListAfterClick);
 input.addEventListener("keypress", addListAfterKeyPress);
 
 //when the list item is clicked
+//when the list item is clicked
 let list = document.querySelectorAll("li");
 for (let i = 0; i < list.length; i++) {
   list[i].addEventListener("click", function (e) {
     list[i].classList.toggle("done");
+    let button = document.createElement("BUTTON");
+    let text = document.createTextNode("delete!");
+    button.appendChild(text);
+    list[i].appendChild(button);
+    button.addEventListener("click", () => list[i].remove());
   });
 }
